@@ -47,3 +47,23 @@ def posiciona_frota(dic):
                 y=posicao[1]
                 lista[x][y]=1
     return lista
+
+def afundados(dic,tabuleiro):
+    afundados=0
+    afundado=False
+    for nome, listap in dic.items():
+        for barco in listap:
+            if afundado==True:
+                afundados+=1
+            afundado=False
+            for posicoes in barco:
+                x=posicoes[0]
+                y=posicoes[1]
+                if tabuleiro[x][y]=='X':
+                    afundado=True
+                else:
+                    afundado=False
+                    break
+    if afundado==True:
+        afundados+=1
+    return afundados
